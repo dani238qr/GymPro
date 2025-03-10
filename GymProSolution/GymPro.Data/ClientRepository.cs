@@ -1,24 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using GymPro.Core;
 
 namespace GymPro.Data
 {
     public class ClientRepository
     {
-        private const string FilePath = "clients.txt";
 
+        private List<Client> clients = new List<Client>();
+
+       
         public void AddClient(Client client)
         {
-            File.AppendAllText(FilePath, client + "\n");
+            clients.Add(client);
         }
 
-        public List<string> GetClients()
+       
+        public List<Client> GetClients()
         {
-            if (File.Exists(FilePath))
-                return new List<string>(File.ReadAllLines(FilePath));
-            return new List<string>();
+            return clients;
+        }
+
+     
+        public List<Client> SearchClientsByName(string name)
+        {
+            var foundClients = new List<Client>();
+
+            foreach (var client in clients)
+            {
+                if (client.FirstName.Contains(name, StringComparison.OrdinalIgnoreCase) ||
+                    client.LastName.Contains(name, StringComparison.OrdinalIgnoreCase))
+                {
+                    foundClients.Add(client);
+                }
+            }
+
+            return foundClients;
         }
     }
 }

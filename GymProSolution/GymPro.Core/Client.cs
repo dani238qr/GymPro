@@ -26,7 +26,6 @@ namespace GymPro.Core
             return $"{CNP},{LastName},{FirstName},{Subscription.Type},{Subscription.Options},{Subscription.Price},{Subscription.DurationDays},{ExpirationDate:yyyy-MM-dd},{Contact}";
         }
 
-        // Static method to parse a client from a string (useful for reading from a file)
         public static Client FromString(string data)
         {
             var parts = data.Split(',');

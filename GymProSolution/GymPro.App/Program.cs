@@ -15,7 +15,8 @@ namespace GymPro.App
                 Console.WriteLine("--- GymPro ---");
                 Console.WriteLine("1. Add client");
                 Console.WriteLine("2. Show clients");
-                Console.WriteLine("3. Exit");
+                Console.WriteLine("3. Search client by name");
+                Console.WriteLine("4. Exit");
                 Console.Write("Choose an option: ");
 
                 string option = Console.ReadLine();
@@ -23,7 +24,8 @@ namespace GymPro.App
                 {
                     case "1": AddClient(); break;
                     case "2": ShowClients(); break;
-                    case "3": return;
+                    case "3": SearchClientByName(); break;
+                    case "4": return;
                     default: Console.WriteLine("Invalid option"); break;
                 }
             }
@@ -73,6 +75,26 @@ namespace GymPro.App
             else
             {
                 Console.WriteLine("No registered clients.");
+            }
+        }
+
+        static void SearchClientByName()
+        {
+            Console.Write("Enter name to search (First or Last Name): ");
+            string name = Console.ReadLine();
+
+            var foundClients = clientRepository.SearchClientsByName(name);
+            if (foundClients.Count > 0)
+            {
+                Console.WriteLine("Found clients:");
+                foreach (var client in foundClients)
+                {
+                    Console.WriteLine(client);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No clients found with that name.");
             }
         }
     }
