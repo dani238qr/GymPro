@@ -50,7 +50,7 @@ namespace GymPro.Data
         {
             using (StreamWriter writer = new StreamWriter(filePath, true))
             {
-                writer.WriteLine(client.ToString());t
+                writer.WriteLine(client.ToString());
             }
         }
 
