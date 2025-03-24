@@ -10,8 +10,9 @@ namespace GymPro.Core
         public Subscription Subscription { get; set; }
         public DateTime ExpirationDate { get; set; }
         public string Contact { get; set; }
+        public string PersonalCoach { get; set; } // New property
 
-        public Client(string cnp, string lastName, string firstName, Subscription subscription, DateTime expirationDate, string contact)
+        public Client(string cnp, string lastName, string firstName, Subscription subscription, DateTime expirationDate, string contact, string personalCoach)
         {
             CNP = cnp;
             LastName = lastName;
@@ -19,17 +20,18 @@ namespace GymPro.Core
             Subscription = subscription;
             ExpirationDate = expirationDate;
             Contact = contact;
+            PersonalCoach = personalCoach; // Store coach selection
         }
 
         public override string ToString()
         {
-            return $"{CNP},{LastName},{FirstName},{Subscription.Type},{Subscription.Options},{Subscription.Price},{Subscription.DurationDays},{ExpirationDate:yyyy-MM-dd},{Contact}";
+            return $"{CNP},{LastName},{FirstName},{Subscription.Type},{Subscription.Options},{Subscription.Price},{Subscription.DurationDays},{ExpirationDate:yyyy-MM-dd},{Contact},{PersonalCoach}";
         }
 
         public static Client FromString(string data)
         {
             var parts = data.Split(',');
-            if (parts.Length < 8) throw new FormatException("Invalid client data format.");
+            if (parts.Length < 9) throw new FormatException("Invalid client data format.");
 
             string cnp = parts[0];
             string lastName = parts[1];
@@ -40,9 +42,10 @@ namespace GymPro.Core
             int durationDays = int.Parse(parts[6]);
             DateTime expirationDate = DateTime.Parse(parts[7]);
             string contact = parts[8];
+            string personalCoach = parts.Length > 9 ? parts[9] : "None"; // Default to "None" if missing
 
             Subscription subscription = new Subscription(subscriptionType, subscriptionOptions, price, durationDays);
-            return new Client(cnp, lastName, firstName, subscription, expirationDate, contact);
+            return new Client(cnp, lastName, firstName, subscription, expirationDate, contact, personalCoach);
         }
     }
 }

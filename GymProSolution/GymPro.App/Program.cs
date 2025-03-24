@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using GymPro.Core;
 using GymPro.Data;
 
@@ -7,6 +8,7 @@ namespace GymPro.App
     class Program
     {
         static ClientRepository clientRepository = new ClientRepository();
+        static List<string> personalCoaches = new List<string> { "John Smith", "Emily Johnson", "Michael Brown", "Sarah Davis" };
 
         static void Main()
         {
@@ -54,8 +56,32 @@ namespace GymPro.App
             Console.Write("Contact: ");
             string contact = Console.ReadLine();
 
+            // Ask if they want a personal coach
+            string personalCoach = "None";
+            Console.Write("Would you like a personal coach? (yes/no): ");
+            string coachResponse = Console.ReadLine().Trim().ToLower();
+
+            if (coachResponse == "yes")
+            {
+                Console.WriteLine("Available Personal Coaches:");
+                for (int i = 0; i < personalCoaches.Count; i++)
+                {
+                    Console.WriteLine($"{i + 1}. {personalCoaches[i]}");
+                }
+
+                Console.Write("Choose a coach by number: ");
+                if (int.TryParse(Console.ReadLine(), out int coachIndex) && coachIndex > 0 && coachIndex <= personalCoaches.Count)
+                {
+                    personalCoach = personalCoaches[coachIndex - 1];
+                }
+                else
+                {
+                    Console.WriteLine("Invalid choice, no coach assigned.");
+                }
+            }
+
             Subscription subscription = new Subscription(subscriptionType, options, price, duration);
-            Client client = new Client(cnp, lastName, firstName, subscription, expirationDate, contact);
+            Client client = new Client(cnp, lastName, firstName, subscription, expirationDate, contact, personalCoach);
 
             clientRepository.AddClient(client);
             Console.WriteLine("Client successfully added!\n");
