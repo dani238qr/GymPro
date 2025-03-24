@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GymPro.Core.Enums;
+using System;
 
 namespace GymPro.Core
 {
@@ -10,7 +11,7 @@ namespace GymPro.Core
         public Subscription Subscription { get; set; }
         public DateTime ExpirationDate { get; set; }
         public string Contact { get; set; }
-        public string PersonalCoach { get; set; } // New property
+        public string PersonalCoach { get; set; } // Add this property
 
         public Client(string cnp, string lastName, string firstName, Subscription subscription, DateTime expirationDate, string contact, string personalCoach)
         {
@@ -20,7 +21,7 @@ namespace GymPro.Core
             Subscription = subscription;
             ExpirationDate = expirationDate;
             Contact = contact;
-            PersonalCoach = personalCoach; // Store coach selection
+            PersonalCoach = personalCoach;
         }
 
         public override string ToString()
@@ -28,10 +29,11 @@ namespace GymPro.Core
             return $"{CNP},{LastName},{FirstName},{Subscription.Type},{Subscription.Options},{Subscription.Price},{Subscription.DurationDays},{ExpirationDate:yyyy-MM-dd},{Contact},{PersonalCoach}";
         }
 
+
         public static Client FromString(string data)
         {
             var parts = data.Split(',');
-            if (parts.Length < 9) throw new FormatException("Invalid client data format.");
+            if (parts.Length < 10) throw new FormatException("Invalid client data format.");  // Ensure correct field count
 
             string cnp = parts[0];
             string lastName = parts[1];
@@ -42,10 +44,18 @@ namespace GymPro.Core
             int durationDays = int.Parse(parts[6]);
             DateTime expirationDate = DateTime.Parse(parts[7]);
             string contact = parts[8];
-            string personalCoach = parts.Length > 9 ? parts[9] : "None"; // Default to "None" if missing
+            string personalCoach = parts[9];  // This should only contain the coach name
 
-            Subscription subscription = new Subscription(subscriptionType, subscriptionOptions, price, durationDays);
+            // Convert string to SubscriptionType enum safely
+            if (!Enum.TryParse(subscriptionType, true, out SubscriptionType subType))
+            {
+                subType = SubscriptionType.Basic; // Default to Basic if invalid
+            }
+
+            Subscription subscription = new Subscription(subType, subscriptionOptions, price, durationDays);
             return new Client(cnp, lastName, firstName, subscription, expirationDate, contact, personalCoach);
         }
+
     }
+
 }
