@@ -33,6 +33,7 @@ namespace GymPro.App
 
             while (true)
             {
+                Console.Clear();
                 Console.WriteLine("--- GymPro ---");
                 Console.WriteLine("1. Add client");
                 Console.WriteLine("2. Show clients");
@@ -49,6 +50,8 @@ namespace GymPro.App
                     case "4": return;
                     default: Console.WriteLine("Invalid option"); break;
                 }
+                Console.WriteLine("\nPress any key to continue...");
+                Console.ReadKey();
             }
         }
 
