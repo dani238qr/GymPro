@@ -8,70 +8,59 @@ namespace GymPro.Data
     public class ClientRepository
     {
         private List<Client> clients = new List<Client>();
-        private readonly string filePath = "clients.txt";
+        private string filePath;
 
-        public ClientRepository()
+        public ClientRepository(string fileName = "clients.txt")
         {
+            filePath = fileName;  
             LoadClientsFromFile();
         }
 
-        // Add a new client and save to file
+
         public void AddClient(Client client)
         {
             clients.Add(client);
-            SaveClientToFile(client);
+            SaveClientsToFile();
         }
 
-        // Get all clients
         public List<Client> GetClients()
         {
-            return clients;
+            return new List<Client>(clients); 
         }
 
-        // Search for clients by name (either first or last name)
         public List<Client> SearchClientsByName(string name)
         {
-            var foundClients = new List<Client>();
-
-            foreach (var client in clients)
-            {
-                if (client.FirstName.Contains(name, StringComparison.OrdinalIgnoreCase) ||
-                    client.LastName.Contains(name, StringComparison.OrdinalIgnoreCase))
-                {
-                    foundClients.Add(client);
-                }
-            }
-
-            return foundClients;
+            return clients.FindAll(c => c.FirstName.Contains(name, StringComparison.OrdinalIgnoreCase)
+                                     || c.LastName.Contains(name, StringComparison.OrdinalIgnoreCase));
         }
 
-        // Save a single client to the file
-        private void SaveClientToFile(Client client)
-        {
-            using (StreamWriter writer = new StreamWriter(filePath, true))
-            {
-                writer.WriteLine(client.ToString());
-            }
-        }
-
-        // Load all clients from the file at startup
         private void LoadClientsFromFile()
         {
-            if (!File.Exists(filePath))
-                return;
-
-            string[] lines = File.ReadAllLines(filePath);
-            foreach (string line in lines)
+            if (File.Exists(filePath))
             {
-                try
+                string[] lines = File.ReadAllLines(filePath);
+                foreach (string line in lines)
                 {
-                    clients.Add(Client.FromString(line));
-                }
-                catch (FormatException ex)
-                {
-                    Console.WriteLine($"Error loading client: {ex.Message}");
+                    try
+                    {
+                        clients.Add(Client.FromString(line)); // Convert string to Client object
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error loading client: {ex.Message}");
+                    }
                 }
             }
+        }
+
+        private void SaveClientsToFile()
+        {
+            List<string> lines = new List<string>();
+            foreach (var client in clients)
+            {
+                lines.Add(client.ToString()); // Convert Client object to string
+            }
+            File.WriteAllLines(filePath, lines);
         }
     }
 }
