@@ -7,12 +7,15 @@ namespace GymPro.Data
 {
     public class ClientRepository
     {
-        private List<Client> clients = new List<Client>();
-        private string filePath;
+        public List<Client> clients = new List<Client>();
+        public string filePath;
 
         public ClientRepository(string fileName = "clients.txt")
         {
-            filePath = fileName;  
+            string solutionDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName;
+
+            filePath = Path.Combine(solutionDirectory, fileName);
+
             LoadClientsFromFile();
         }
 
@@ -34,7 +37,7 @@ namespace GymPro.Data
                                      || c.LastName.Contains(name, StringComparison.OrdinalIgnoreCase));
         }
 
-        private void LoadClientsFromFile()
+        public void LoadClientsFromFile()
         {
             if (File.Exists(filePath))
             {
@@ -53,7 +56,7 @@ namespace GymPro.Data
             }
         }
 
-        private void SaveClientsToFile()
+        public void SaveClientsToFile()
         {
             List<string> lines = new List<string>();
             foreach (var client in clients)

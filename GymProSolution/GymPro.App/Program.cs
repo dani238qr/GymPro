@@ -94,7 +94,7 @@ namespace GymPro.App
             string wantsCoach = Console.ReadLine().ToLower();
 
             string personalCoach = "None";
-            // Ensure we only store the name, not "John Smith - Coach: John Smith"
+            
             if (wantsCoach == "yes")
             {
                 Console.WriteLine("Available Personal Coaches:");

@@ -11,9 +11,9 @@ namespace GymPro.Core
         public Subscription Subscription { get; set; }
         public DateTime ExpirationDate { get; set; }
         public string Contact { get; set; }
-        public string PersonalCoach { get; set; } // Add this property
+        public string PersonalCoach { get; set; }
 
-        public Client(string cnp, string lastName, string firstName, Subscription subscription, DateTime expirationDate, string contact, string personalCoach)
+        public Client(string cnp, string lastName, string firstName, Subscription subscription, DateTime expirationDate, string contact, string personalCoach = null)
         {
             CNP = cnp;
             LastName = lastName;
@@ -33,7 +33,7 @@ namespace GymPro.Core
         public static Client FromString(string data)
         {
             var parts = data.Split(',');
-            if (parts.Length < 10) throw new FormatException("Invalid client data format.");  // Ensure correct field count
+            if (parts.Length < 10) throw new FormatException("Invalid client data format.");  
 
             string cnp = parts[0];
             string lastName = parts[1];
@@ -44,9 +44,9 @@ namespace GymPro.Core
             int durationDays = int.Parse(parts[6]);
             DateTime expirationDate = DateTime.Parse(parts[7]);
             string contact = parts[8];
-            string personalCoach = parts[9];  // This should only contain the coach name
+            string personalCoach = parts[9];  
 
-            // Convert string to SubscriptionType enum safely
+           
             if (!Enum.TryParse(subscriptionType, true, out SubscriptionType subType))
             {
                 subType = SubscriptionType.Basic; // Default to Basic if invalid
