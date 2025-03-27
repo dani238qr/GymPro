@@ -3,6 +3,10 @@
     public enum SubscriptionType
     {
         Basic,
+<<<<<<< Updated upstream
+=======
+        Standard,
+>>>>>>> Stashed changes
         Premium,
         VIP
     }

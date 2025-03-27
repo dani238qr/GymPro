@@ -1,8 +1,14 @@
+<<<<<<< Updated upstream
 ﻿using GymPro.Core.Enums;
 using System;
+=======
+﻿using GymPro.Core;
+using GymPro.Core.Enums;
+>>>>>>> Stashed changes
 
-namespace GymPro.Core
+public static Client FromString(string data)
 {
+<<<<<<< Updated upstream
     public class Client
     {
         public string CNP { get; set; }
@@ -58,4 +64,22 @@ namespace GymPro.Core
 
     }
 
+=======
+    var parts = data.Split(',');
+    if (parts.Length < 9) throw new FormatException("Invalid client data format.");
+
+    string cnp = parts[0];
+    string lastName = parts[1];
+    string firstName = parts[2];
+    SubscriptionType subscriptionType = Enum.Parse<SubscriptionType>(parts[3]);
+    string subscriptionOptions = parts[4];
+    decimal price = decimal.Parse(parts[5]);
+    int durationDays = int.Parse(parts[6]);
+    DateTime expirationDate = DateTime.Parse(parts[7]);
+    string contact = parts[8];
+    string personalCoach = parts.Length > 9 ? parts[9] : "None";
+
+    Subscription subscription = new Subscription(subscriptionType, subscriptionOptions, price, durationDays);
+    return new Client(cnp, lastName, firstName, subscription, expirationDate, contact, personalCoach);
+>>>>>>> Stashed changes
 }
