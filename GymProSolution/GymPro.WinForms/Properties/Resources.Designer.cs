@@ -59,5 +59,15 @@ namespace GymPro.WinForms.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] GymPro_Logo_Panel {
+            get {
+                object obj = ResourceManager.GetObject("GymPro Logo Panel", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }
