@@ -60,13 +60,20 @@
             lblDurationError = new Label();
             lblContactError = new Label();
             panel1 = new Panel();
+            CoachInfo = new Button();
+            Search = new Button();
+            AddClients = new Button();
+            HomePanel = new Panel();
+            SearchPanel = new Panel();
+            CoachPanel = new Panel();
             pictureBox1 = new PictureBox();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            listView1 = new ListView();
-            treeView1 = new TreeView();
+            CoachInfoPanel = new Label();
+            SearchPanelLabel = new Label();
+            HomePanellabel = new Label();
             panel1.SuspendLayout();
+            HomePanel.SuspendLayout();
+            SearchPanel.SuspendLayout();
+            CoachPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -137,6 +144,7 @@
             // btnAddClient
             // 
             btnAddClient.BackColor = Color.Transparent;
+            btnAddClient.FlatStyle = FlatStyle.Popup;
             btnAddClient.Location = new Point(216, 495);
             btnAddClient.Name = "btnAddClient";
             btnAddClient.Size = new Size(100, 30);
@@ -147,17 +155,21 @@
             // 
             // btnLoadClients
             // 
+            btnLoadClients.BackColor = Color.Transparent;
+            btnLoadClients.FlatStyle = FlatStyle.Flat;
             btnLoadClients.Location = new Point(447, 495);
             btnLoadClients.Name = "btnLoadClients";
             btnLoadClients.Size = new Size(100, 30);
             btnLoadClients.TabIndex = 11;
             btnLoadClients.Text = "Load Clients";
+            btnLoadClients.UseVisualStyleBackColor = false;
             btnLoadClients.Click += btnLoadClients_Click;
             // 
             // lstClients
             // 
             lstClients.BackColor = SystemColors.Control;
             lstClients.ForeColor = Color.Black;
+            lstClients.HorizontalScrollbar = true;
             lstClients.ItemHeight = 15;
             lstClients.Location = new Point(195, 543);
             lstClients.Name = "lstClients";
@@ -344,15 +356,77 @@
             // panel1
             // 
             panel1.BackColor = Color.Transparent;
-            panel1.Controls.Add(treeView1);
-            panel1.Controls.Add(listView1);
-            panel1.Controls.Add(button3);
-            panel1.Controls.Add(button2);
-            panel1.Controls.Add(button1);
-            panel1.Location = new Point(12, 94);
+            panel1.Controls.Add(CoachInfo);
+            panel1.Controls.Add(Search);
+            panel1.Controls.Add(AddClients);
+            panel1.Location = new Point(12, 91);
             panel1.Name = "panel1";
-            panel1.Size = new Size(177, 573);
+            panel1.Size = new Size(177, 576);
             panel1.TabIndex = 28;
+            // 
+            // CoachInfo
+            // 
+            CoachInfo.FlatStyle = FlatStyle.Popup;
+            CoachInfo.Location = new Point(20, 163);
+            CoachInfo.Name = "CoachInfo";
+            CoachInfo.Size = new Size(75, 23);
+            CoachInfo.TabIndex = 2;
+            CoachInfo.Text = "CoachInfo";
+            CoachInfo.UseVisualStyleBackColor = true;
+            CoachInfo.Click += CoachInfo_Click;
+            // 
+            // Search
+            // 
+            Search.FlatStyle = FlatStyle.Popup;
+            Search.Location = new Point(20, 93);
+            Search.Name = "Search";
+            Search.Size = new Size(75, 23);
+            Search.TabIndex = 1;
+            Search.Text = "Search";
+            Search.UseVisualStyleBackColor = true;
+            Search.Click += Search_Click;
+            // 
+            // AddClients
+            // 
+            AddClients.FlatStyle = FlatStyle.Popup;
+            AddClients.Location = new Point(20, 25);
+            AddClients.Name = "AddClients";
+            AddClients.Size = new Size(75, 23);
+            AddClients.TabIndex = 0;
+            AddClients.Text = "AddClients\r\n";
+            AddClients.UseVisualStyleBackColor = true;
+            AddClients.Click += AddClients_Click;
+            // 
+            // HomePanel
+            // 
+            HomePanel.BackColor = SystemColors.ActiveCaptionText;
+            HomePanel.Controls.Add(SearchPanel);
+            HomePanel.Location = new Point(186, 91);
+            HomePanel.Name = "HomePanel";
+            HomePanel.Size = new Size(389, 576);
+            HomePanel.TabIndex = 30;
+            // 
+            // SearchPanel
+            // 
+            SearchPanel.BackColor = Color.LightGray;
+            SearchPanel.Controls.Add(CoachPanel);
+            SearchPanel.Location = new Point(0, 0);
+            SearchPanel.Name = "SearchPanel";
+            SearchPanel.Size = new Size(389, 576);
+            SearchPanel.TabIndex = 0;
+            SearchPanel.Visible = false;
+            // 
+            // CoachPanel
+            // 
+            CoachPanel.BackColor = Color.OrangeRed;
+            CoachPanel.Controls.Add(HomePanellabel);
+            CoachPanel.Controls.Add(SearchPanelLabel);
+            CoachPanel.Controls.Add(CoachInfoPanel);
+            CoachPanel.Location = new Point(0, 0);
+            CoachPanel.Name = "CoachPanel";
+            CoachPanel.Size = new Size(389, 576);
+            CoachPanel.TabIndex = 0;
+            CoachPanel.Visible = false;
             // 
             // pictureBox1
             // 
@@ -362,58 +436,44 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(616, 105);
+            pictureBox1.Size = new Size(573, 105);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 29;
             pictureBox1.TabStop = false;
             // 
-            // button1
+            // CoachInfoPanel
             // 
-            button1.Location = new Point(20, 25);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 0;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            CoachInfoPanel.AutoSize = true;
+            CoachInfoPanel.Location = new Point(171, 224);
+            CoachInfoPanel.Name = "CoachInfoPanel";
+            CoachInfoPanel.Size = new Size(91, 15);
+            CoachInfoPanel.TabIndex = 0;
+            CoachInfoPanel.Text = "CoachInfoPanel";
             // 
-            // button2
+            // SearchPanelLabel
             // 
-            button2.Location = new Point(20, 93);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 1;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
+            SearchPanelLabel.AutoSize = true;
+            SearchPanelLabel.Location = new Point(140, 176);
+            SearchPanelLabel.Name = "SearchPanelLabel";
+            SearchPanelLabel.Size = new Size(99, 15);
+            SearchPanelLabel.TabIndex = 1;
+            SearchPanelLabel.Text = "SearchPanelLabel";
             // 
-            // button3
+            // HomePanellabel
             // 
-            button3.Location = new Point(20, 163);
-            button3.Name = "button3";
-            button3.Size = new Size(75, 23);
-            button3.TabIndex = 2;
-            button3.Text = "button3";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // listView1
-            // 
-            listView1.Location = new Point(20, 223);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(121, 107);
-            listView1.TabIndex = 3;
-            listView1.UseCompatibleStateImageBehavior = false;
-            // 
-            // treeView1
-            // 
-            treeView1.Location = new Point(20, 401);
-            treeView1.Name = "treeView1";
-            treeView1.Size = new Size(121, 97);
-            treeView1.TabIndex = 4;
+            HomePanellabel.AutoSize = true;
+            HomePanellabel.Location = new Point(143, 322);
+            HomePanellabel.Name = "HomePanellabel";
+            HomePanellabel.Size = new Size(94, 15);
+            HomePanellabel.TabIndex = 2;
+            HomePanellabel.Text = "HomePanellabel";
             // 
             // Form1
             // 
             BackColor = SystemColors.Control;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(616, 724);
+            ClientSize = new Size(573, 636);
+            Controls.Add(HomePanel);
             Controls.Add(panel1);
             Controls.Add(lblContactError);
             Controls.Add(lblDurationError);
@@ -447,6 +507,10 @@
             Name = "Form1";
             Text = "GymPro Client Management";
             panel1.ResumeLayout(false);
+            HomePanel.ResumeLayout(false);
+            SearchPanel.ResumeLayout(false);
+            CoachPanel.ResumeLayout(false);
+            CoachPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -469,10 +533,14 @@
         private Label lblContactError;
         private Panel panel1;
         private PictureBox pictureBox1;
-        private TreeView treeView1;
-        private ListView listView1;
-        private Button button3;
-        private Button button2;
-        private Button button1;
+        private Button CoachInfo;
+        private Button Search;
+        private Button AddClients;
+        private Panel HomePanel;
+        private Panel SearchPanel;
+        private Panel CoachPanel;
+        private Label HomePanellabel;
+        private Label SearchPanelLabel;
+        private Label CoachInfoPanel;
     }
 }
