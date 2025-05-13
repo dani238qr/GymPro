@@ -152,5 +152,25 @@ namespace GymPro.WinForms
             SearchPanel.Visible = true;
             CoachPanel.Visible = true;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string searchTerm = textBox1.Text.Trim();
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                var results = clientRepository.SearchClientsByName(searchTerm);
+                dgvSearchResults.DataSource = null; // clear before setting new source
+                dgvSearchResults.DataSource = results;
+            }
+            else
+            {
+                MessageBox.Show("Please enter a name to search.");
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

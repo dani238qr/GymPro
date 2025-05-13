@@ -60,21 +60,35 @@
             lblDurationError = new Label();
             lblContactError = new Label();
             panel1 = new Panel();
+            SearchPanel = new Panel();
+            dgvSearchResults = new DataGridView();
+            textBox1 = new TextBox();
+            button1 = new Button();
             CoachInfo = new Button();
             Search = new Button();
             AddClients = new Button();
             HomePanel = new Panel();
-            SearchPanel = new Panel();
             CoachPanel = new Panel();
-            pictureBox1 = new PictureBox();
+            label1 = new Label();
             CoachInfoPanel = new Label();
-            SearchPanelLabel = new Label();
-            HomePanellabel = new Label();
+            pictureBox1 = new PictureBox();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            pictureBox2 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            pictureBox4 = new PictureBox();
+            pictureBox5 = new PictureBox();
             panel1.SuspendLayout();
-            HomePanel.SuspendLayout();
             SearchPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvSearchResults).BeginInit();
+            HomePanel.SuspendLayout();
             CoachPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
             // 
             // txtLastName
@@ -359,14 +373,64 @@
             panel1.Controls.Add(CoachInfo);
             panel1.Controls.Add(Search);
             panel1.Controls.Add(AddClients);
-            panel1.Location = new Point(12, 91);
+            panel1.Location = new Point(6, 91);
             panel1.Name = "panel1";
-            panel1.Size = new Size(177, 576);
+            panel1.Size = new Size(183, 576);
             panel1.TabIndex = 28;
+            // 
+            // SearchPanel
+            // 
+            SearchPanel.BackColor = Color.Transparent;
+            SearchPanel.BackgroundImage = (Image)resources.GetObject("SearchPanel.BackgroundImage");
+            SearchPanel.Controls.Add(dgvSearchResults);
+            SearchPanel.Controls.Add(textBox1);
+            SearchPanel.Controls.Add(button1);
+            SearchPanel.Location = new Point(0, 0);
+            SearchPanel.Name = "SearchPanel";
+            SearchPanel.Size = new Size(389, 582);
+            SearchPanel.TabIndex = 0;
+            SearchPanel.Visible = false;
+            // 
+            // dgvSearchResults
+            // 
+            dgvSearchResults.AllowUserToAddRows = false;
+            dgvSearchResults.AllowUserToDeleteRows = false;
+            dgvSearchResults.BackgroundColor = SystemColors.ControlLightLight;
+            dgvSearchResults.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvSearchResults.Location = new Point(30, 150);
+            dgvSearchResults.Name = "dgvSearchResults";
+            dgvSearchResults.ReadOnly = true;
+            dgvSearchResults.RightToLeft = RightToLeft.Yes;
+            dgvSearchResults.RowTemplate.Height = 25;
+            dgvSearchResults.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvSearchResults.Size = new Size(331, 339);
+            dgvSearchResults.TabIndex = 2;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(81, 49);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(198, 23);
+            textBox1.TabIndex = 1;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.Transparent;
+            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
+            button1.FlatStyle = FlatStyle.Popup;
+            button1.ForeColor = SystemColors.ControlLightLight;
+            button1.Location = new Point(147, 95);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 0;
+            button1.Text = "search\r\n";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // CoachInfo
             // 
             CoachInfo.FlatStyle = FlatStyle.Popup;
+            CoachInfo.ForeColor = SystemColors.ControlLightLight;
             CoachInfo.Location = new Point(20, 163);
             CoachInfo.Name = "CoachInfo";
             CoachInfo.Size = new Size(75, 23);
@@ -378,6 +442,7 @@
             // Search
             // 
             Search.FlatStyle = FlatStyle.Popup;
+            Search.ForeColor = SystemColors.ControlLightLight;
             Search.Location = new Point(20, 93);
             Search.Name = "Search";
             Search.Size = new Size(75, 23);
@@ -389,6 +454,7 @@
             // AddClients
             // 
             AddClients.FlatStyle = FlatStyle.Popup;
+            AddClients.ForeColor = SystemColors.ControlLightLight;
             AddClients.Location = new Point(20, 25);
             AddClients.Name = "AddClients";
             AddClients.Size = new Size(75, 23);
@@ -400,33 +466,54 @@
             // HomePanel
             // 
             HomePanel.BackColor = SystemColors.ActiveCaptionText;
+            HomePanel.BackgroundImage = (Image)resources.GetObject("HomePanel.BackgroundImage");
+            HomePanel.BackgroundImageLayout = ImageLayout.Stretch;
             HomePanel.Controls.Add(SearchPanel);
-            HomePanel.Location = new Point(186, 91);
+            HomePanel.Location = new Point(195, 91);
             HomePanel.Name = "HomePanel";
             HomePanel.Size = new Size(389, 576);
             HomePanel.TabIndex = 30;
             // 
-            // SearchPanel
-            // 
-            SearchPanel.BackColor = Color.LightGray;
-            SearchPanel.Controls.Add(CoachPanel);
-            SearchPanel.Location = new Point(0, 0);
-            SearchPanel.Name = "SearchPanel";
-            SearchPanel.Size = new Size(389, 576);
-            SearchPanel.TabIndex = 0;
-            SearchPanel.Visible = false;
-            // 
             // CoachPanel
             // 
             CoachPanel.BackColor = Color.OrangeRed;
-            CoachPanel.Controls.Add(HomePanellabel);
-            CoachPanel.Controls.Add(SearchPanelLabel);
+            CoachPanel.BackgroundImage = (Image)resources.GetObject("CoachPanel.BackgroundImage");
+            CoachPanel.Controls.Add(pictureBox5);
+            CoachPanel.Controls.Add(pictureBox4);
+            CoachPanel.Controls.Add(pictureBox3);
+            CoachPanel.Controls.Add(pictureBox2);
+            CoachPanel.Controls.Add(label4);
+            CoachPanel.Controls.Add(label3);
+            CoachPanel.Controls.Add(label2);
+            CoachPanel.Controls.Add(label1);
             CoachPanel.Controls.Add(CoachInfoPanel);
-            CoachPanel.Location = new Point(0, 0);
+            CoachPanel.Location = new Point(192, 91);
             CoachPanel.Name = "CoachPanel";
-            CoachPanel.Size = new Size(389, 576);
+            CoachPanel.Size = new Size(392, 576);
             CoachPanel.TabIndex = 0;
             CoachPanel.Visible = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.ForeColor = SystemColors.ControlLightLight;
+            label1.Location = new Point(3, 233);
+            label1.Name = "label1";
+            label1.Size = new Size(177, 30);
+            label1.TabIndex = 1;
+            label1.Text = "                John Smith\r\n   Specialization: Weight Training";
+            // 
+            // CoachInfoPanel
+            // 
+            CoachInfoPanel.AutoSize = true;
+            CoachInfoPanel.BackColor = Color.Transparent;
+            CoachInfoPanel.ForeColor = SystemColors.ControlLightLight;
+            CoachInfoPanel.Location = new Point(138, 25);
+            CoachInfoPanel.Name = "CoachInfoPanel";
+            CoachInfoPanel.Size = new Size(129, 15);
+            CoachInfoPanel.TabIndex = 0;
+            CoachInfoPanel.Text = "Info about our coaches\r\n";
             // 
             // pictureBox1
             // 
@@ -436,43 +523,90 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(573, 105);
+            pictureBox1.Size = new Size(587, 105);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 29;
             pictureBox1.TabStop = false;
             // 
-            // CoachInfoPanel
+            // label2
             // 
-            CoachInfoPanel.AutoSize = true;
-            CoachInfoPanel.Location = new Point(171, 224);
-            CoachInfoPanel.Name = "CoachInfoPanel";
-            CoachInfoPanel.Size = new Size(91, 15);
-            CoachInfoPanel.TabIndex = 0;
-            CoachInfoPanel.Text = "CoachInfoPanel";
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.ForeColor = SystemColors.ControlLightLight;
+            label2.Location = new Point(249, 233);
+            label2.Name = "label2";
+            label2.Size = new Size(114, 30);
+            label2.TabIndex = 2;
+            label2.Text = "      Eily Johnson\r\n Specialization: Yoga";
             // 
-            // SearchPanelLabel
+            // label3
             // 
-            SearchPanelLabel.AutoSize = true;
-            SearchPanelLabel.Location = new Point(140, 176);
-            SearchPanelLabel.Name = "SearchPanelLabel";
-            SearchPanelLabel.Size = new Size(99, 15);
-            SearchPanelLabel.TabIndex = 1;
-            SearchPanelLabel.Text = "SearchPanelLabel";
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.ForeColor = SystemColors.ControlLightLight;
+            label3.Location = new Point(18, 499);
+            label3.Name = "label3";
+            label3.Size = new Size(128, 30);
+            label3.TabIndex = 3;
+            label3.Text = "      Michael Brown\r\n Specialization: Crossfit";
             // 
-            // HomePanellabel
+            // label4
             // 
-            HomePanellabel.AutoSize = true;
-            HomePanellabel.Location = new Point(143, 322);
-            HomePanellabel.Name = "HomePanellabel";
-            HomePanellabel.Size = new Size(94, 15);
-            HomePanellabel.TabIndex = 2;
-            HomePanellabel.Text = "HomePanellabel";
+            label4.AutoSize = true;
+            label4.BackColor = Color.Transparent;
+            label4.ForeColor = SystemColors.ControlLightLight;
+            label4.Location = new Point(212, 499);
+            label4.Name = "label4";
+            label4.Size = new Size(172, 30);
+            label4.TabIndex = 4;
+            label4.Text = "                 Sarah Davis\r\nSpecialization:Strength Training";
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(18, 63);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(128, 167);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 5;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(235, 63);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(128, 167);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 6;
+            pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(18, 319);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(128, 167);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 7;
+            pictureBox4.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
+            pictureBox5.Location = new Point(235, 319);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(128, 167);
+            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox5.TabIndex = 8;
+            pictureBox5.TabStop = false;
             // 
             // Form1
             // 
             BackColor = SystemColors.Control;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(573, 636);
+            ClientSize = new Size(587, 666);
+            Controls.Add(CoachPanel);
             Controls.Add(HomePanel);
             Controls.Add(panel1);
             Controls.Add(lblContactError);
@@ -506,12 +640,19 @@
             Controls.Add(pictureBox1);
             Name = "Form1";
             Text = "GymPro Client Management";
+            Load += Form1_Load;
             panel1.ResumeLayout(false);
-            HomePanel.ResumeLayout(false);
             SearchPanel.ResumeLayout(false);
+            SearchPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvSearchResults).EndInit();
+            HomePanel.ResumeLayout(false);
             CoachPanel.ResumeLayout(false);
             CoachPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -539,8 +680,17 @@
         private Panel HomePanel;
         private Panel SearchPanel;
         private Panel CoachPanel;
-        private Label HomePanellabel;
-        private Label SearchPanelLabel;
         private Label CoachInfoPanel;
+        private Button button1;
+        private DataGridView dgvSearchResults;
+        private TextBox textBox1;
+        private Label label1;
+        private Label label4;
+        private Label label3;
+        private Label label2;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox5;
+        private PictureBox pictureBox4;
     }
 }
