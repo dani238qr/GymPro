@@ -137,6 +137,7 @@ namespace GymPro.WinForms
             HomePanel.Visible = false;
             SearchPanel.Visible = false;
             CoachPanel.Visible = false;
+            AboutPannel.Visible = false;
         }
 
         private void Search_Click(object sender, EventArgs e)
@@ -144,6 +145,8 @@ namespace GymPro.WinForms
             HomePanel.Visible = true;
             SearchPanel.Visible = true;
             CoachPanel.Visible = false;
+            AboutPannel.Visible = false;
+
         }
 
         private void CoachInfo_Click(object sender, EventArgs e)
@@ -151,8 +154,10 @@ namespace GymPro.WinForms
             HomePanel.Visible = true;
             SearchPanel.Visible = true;
             CoachPanel.Visible = true;
-        }
+            AboutPannel.Visible = false;
 
+        }
+        //search
         private void button1_Click(object sender, EventArgs e)
         {
             string searchTerm = textBox1.Text.Trim();
@@ -170,6 +175,15 @@ namespace GymPro.WinForms
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void About_Click(object sender, EventArgs e)
+        {
+            HomePanel.Visible = false;
+            SearchPanel.Visible = false;
+            CoachPanel.Visible = false;
+            AboutPannel.Visible = true;
 
         }
     }

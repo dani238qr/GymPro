@@ -60,35 +60,39 @@
             lblDurationError = new Label();
             lblContactError = new Label();
             panel1 = new Panel();
+            About = new Button();
+            CoachInfo = new Button();
+            Search = new Button();
+            AddClients = new Button();
             SearchPanel = new Panel();
             dgvSearchResults = new DataGridView();
             textBox1 = new TextBox();
             button1 = new Button();
-            CoachInfo = new Button();
-            Search = new Button();
-            AddClients = new Button();
             HomePanel = new Panel();
             CoachPanel = new Panel();
+            pictureBox5 = new PictureBox();
+            pictureBox4 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
             label1 = new Label();
             CoachInfoPanel = new Label();
             pictureBox1 = new PictureBox();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            pictureBox2 = new PictureBox();
-            pictureBox3 = new PictureBox();
-            pictureBox4 = new PictureBox();
-            pictureBox5 = new PictureBox();
+            AboutPannel = new Panel();
+            label6 = new Label();
             panel1.SuspendLayout();
             SearchPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvSearchResults).BeginInit();
             HomePanel.SuspendLayout();
             CoachPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            AboutPannel.SuspendLayout();
             SuspendLayout();
             // 
             // txtLastName
@@ -158,6 +162,7 @@
             // btnAddClient
             // 
             btnAddClient.BackColor = Color.Transparent;
+            btnAddClient.ForeColor = SystemColors.ControlLightLight;
             btnAddClient.FlatStyle = FlatStyle.Popup;
             btnAddClient.Location = new Point(216, 495);
             btnAddClient.Name = "btnAddClient";
@@ -170,7 +175,8 @@
             // btnLoadClients
             // 
             btnLoadClients.BackColor = Color.Transparent;
-            btnLoadClients.FlatStyle = FlatStyle.Flat;
+            btnLoadClients.ForeColor = SystemColors.ControlLightLight;
+            btnLoadClients.FlatStyle = FlatStyle.Popup;
             btnLoadClients.Location = new Point(447, 495);
             btnLoadClients.Name = "btnLoadClients";
             btnLoadClients.Size = new Size(100, 30);
@@ -370,6 +376,7 @@
             // panel1
             // 
             panel1.BackColor = Color.Transparent;
+            panel1.Controls.Add(About);
             panel1.Controls.Add(CoachInfo);
             panel1.Controls.Add(Search);
             panel1.Controls.Add(AddClients);
@@ -377,6 +384,54 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(183, 576);
             panel1.TabIndex = 28;
+            // 
+            // About
+            // 
+            About.FlatStyle = FlatStyle.Popup;
+            About.ForeColor = SystemColors.ControlLight;
+            About.Location = new Point(20, 228);
+            About.Name = "About";
+            About.Size = new Size(75, 23);
+            About.TabIndex = 3;
+            About.Text = "About";
+            About.UseVisualStyleBackColor = true;
+            About.Click += About_Click;
+            // 
+            // CoachInfo
+            // 
+            CoachInfo.FlatStyle = FlatStyle.Popup;
+            CoachInfo.ForeColor = SystemColors.ControlLightLight;
+            CoachInfo.Location = new Point(20, 163);
+            CoachInfo.Name = "CoachInfo";
+            CoachInfo.Size = new Size(75, 23);
+            CoachInfo.TabIndex = 2;
+            CoachInfo.Text = "CoachInfo";
+            CoachInfo.UseVisualStyleBackColor = true;
+            CoachInfo.Click += CoachInfo_Click;
+            // 
+            // Search
+            // 
+            Search.FlatStyle = FlatStyle.Popup;
+            Search.ForeColor = SystemColors.ControlLightLight;
+            Search.Location = new Point(20, 93);
+            Search.Name = "Search";
+            Search.Size = new Size(75, 23);
+            Search.TabIndex = 1;
+            Search.Text = "Search";
+            Search.UseVisualStyleBackColor = true;
+            Search.Click += Search_Click;
+            // 
+            // AddClients
+            // 
+            AddClients.FlatStyle = FlatStyle.Popup;
+            AddClients.ForeColor = SystemColors.ControlLightLight;
+            AddClients.Location = new Point(20, 25);
+            AddClients.Name = "AddClients";
+            AddClients.Size = new Size(75, 23);
+            AddClients.TabIndex = 0;
+            AddClients.Text = "AddClients\r\n";
+            AddClients.UseVisualStyleBackColor = true;
+            AddClients.Click += AddClients_Click;
             // 
             // SearchPanel
             // 
@@ -427,42 +482,6 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
-            // CoachInfo
-            // 
-            CoachInfo.FlatStyle = FlatStyle.Popup;
-            CoachInfo.ForeColor = SystemColors.ControlLightLight;
-            CoachInfo.Location = new Point(20, 163);
-            CoachInfo.Name = "CoachInfo";
-            CoachInfo.Size = new Size(75, 23);
-            CoachInfo.TabIndex = 2;
-            CoachInfo.Text = "CoachInfo";
-            CoachInfo.UseVisualStyleBackColor = true;
-            CoachInfo.Click += CoachInfo_Click;
-            // 
-            // Search
-            // 
-            Search.FlatStyle = FlatStyle.Popup;
-            Search.ForeColor = SystemColors.ControlLightLight;
-            Search.Location = new Point(20, 93);
-            Search.Name = "Search";
-            Search.Size = new Size(75, 23);
-            Search.TabIndex = 1;
-            Search.Text = "Search";
-            Search.UseVisualStyleBackColor = true;
-            Search.Click += Search_Click;
-            // 
-            // AddClients
-            // 
-            AddClients.FlatStyle = FlatStyle.Popup;
-            AddClients.ForeColor = SystemColors.ControlLightLight;
-            AddClients.Location = new Point(20, 25);
-            AddClients.Name = "AddClients";
-            AddClients.Size = new Size(75, 23);
-            AddClients.TabIndex = 0;
-            AddClients.Text = "AddClients\r\n";
-            AddClients.UseVisualStyleBackColor = true;
-            AddClients.Click += AddClients_Click;
-            // 
             // HomePanel
             // 
             HomePanel.BackColor = SystemColors.ActiveCaptionText;
@@ -492,6 +511,79 @@
             CoachPanel.Size = new Size(392, 576);
             CoachPanel.TabIndex = 0;
             CoachPanel.Visible = false;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
+            pictureBox5.Location = new Point(235, 319);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(128, 167);
+            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox5.TabIndex = 8;
+            pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(18, 319);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(128, 167);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 7;
+            pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(235, 63);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(128, 167);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 6;
+            pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(18, 63);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(128, 167);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 5;
+            pictureBox2.TabStop = false;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = Color.Transparent;
+            label4.ForeColor = SystemColors.ControlLightLight;
+            label4.Location = new Point(212, 499);
+            label4.Name = "label4";
+            label4.Size = new Size(172, 30);
+            label4.TabIndex = 4;
+            label4.Text = "                 Sarah Davis\r\nSpecialization:Strength Training";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.ForeColor = SystemColors.ControlLightLight;
+            label3.Location = new Point(18, 499);
+            label3.Name = "label3";
+            label3.Size = new Size(128, 30);
+            label3.TabIndex = 3;
+            label3.Text = "      Michael Brown\r\n Specialization: Crossfit";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.ForeColor = SystemColors.ControlLightLight;
+            label2.Location = new Point(249, 233);
+            label2.Name = "label2";
+            label2.Size = new Size(114, 30);
+            label2.TabIndex = 2;
+            label2.Text = "      Eily Johnson\r\n Specialization: Yoga";
             // 
             // label1
             // 
@@ -523,89 +615,38 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(587, 105);
+            pictureBox1.Size = new Size(611, 105);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 29;
             pictureBox1.TabStop = false;
             // 
-            // label2
+            // AboutPannel
             // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.ForeColor = SystemColors.ControlLightLight;
-            label2.Location = new Point(249, 233);
-            label2.Name = "label2";
-            label2.Size = new Size(114, 30);
-            label2.TabIndex = 2;
-            label2.Text = "      Eily Johnson\r\n Specialization: Yoga";
+            AboutPannel.AutoScroll = true;
+            AboutPannel.BackColor = Color.Transparent;
+            AboutPannel.Controls.Add(label6);
+            AboutPannel.Location = new Point(192, 91);
+            AboutPannel.Name = "AboutPannel";
+            AboutPannel.Size = new Size(395, 576);
+            AboutPannel.TabIndex = 9;
+            AboutPannel.Visible = false;
             // 
-            // label3
+            // label6
             // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.Transparent;
-            label3.ForeColor = SystemColors.ControlLightLight;
-            label3.Location = new Point(18, 499);
-            label3.Name = "label3";
-            label3.Size = new Size(128, 30);
-            label3.TabIndex = 3;
-            label3.Text = "      Michael Brown\r\n Specialization: Crossfit";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.BackColor = Color.Transparent;
-            label4.ForeColor = SystemColors.ControlLightLight;
-            label4.Location = new Point(212, 499);
-            label4.Name = "label4";
-            label4.Size = new Size(172, 30);
-            label4.TabIndex = 4;
-            label4.Text = "                 Sarah Davis\r\nSpecialization:Strength Training";
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(18, 63);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(128, 167);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 5;
-            pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(235, 63);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(128, 167);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 6;
-            pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(18, 319);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(128, 167);
-            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox4.TabIndex = 7;
-            pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(235, 319);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(128, 167);
-            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox5.TabIndex = 8;
-            pictureBox5.TabStop = false;
+            label6.AutoSize = true;
+            label6.ForeColor = SystemColors.ControlLightLight;
+            label6.Location = new Point(59, 16);
+            label6.Name = "label6";
+            label6.Size = new Size(437, 1110);
+            label6.TabIndex = 1;
+            label6.Text = resources.GetString("label6.Text");
             // 
             // Form1
             // 
             BackColor = SystemColors.Control;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(587, 666);
+            ClientSize = new Size(611, 691);
+            Controls.Add(AboutPannel);
             Controls.Add(CoachPanel);
             Controls.Add(HomePanel);
             Controls.Add(panel1);
@@ -648,11 +689,13 @@
             HomePanel.ResumeLayout(false);
             CoachPanel.ResumeLayout(false);
             CoachPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            AboutPannel.ResumeLayout(false);
+            AboutPannel.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -692,5 +735,8 @@
         private PictureBox pictureBox2;
         private PictureBox pictureBox5;
         private PictureBox pictureBox4;
+        private Button About;
+        private Panel AboutPannel;
+        private Label label6;
     }
 }
