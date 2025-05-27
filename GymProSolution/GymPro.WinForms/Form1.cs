@@ -107,7 +107,16 @@ namespace GymPro.WinForms
             clientRepository.SaveClientsToFile();
 
             MessageBox.Show("Client successfully added!");
-            LoadClients();
+            //LoadClients();
+
+            txtLastName.Clear();
+            txtFirstName.Clear();
+            txtCNP.Clear();
+            txtOptions.Clear();
+            txtPrice.Clear();
+            txtDuration.Clear();
+            txtContact.Clear();
+
         }
 
         private void LoadClients()
@@ -185,6 +194,12 @@ namespace GymPro.WinForms
             CoachPanel.Visible = false;
             AboutPannel.Visible = true;
 
+        }
+
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Client data saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

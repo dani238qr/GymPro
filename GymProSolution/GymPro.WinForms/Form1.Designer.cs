@@ -65,6 +65,7 @@
             Search = new Button();
             AddClients = new Button();
             SearchPanel = new Panel();
+            SaveButton = new Button();
             dgvSearchResults = new DataGridView();
             textBox1 = new TextBox();
             button1 = new Button();
@@ -437,6 +438,7 @@
             // 
             SearchPanel.BackColor = Color.Transparent;
             SearchPanel.BackgroundImage = (Image)resources.GetObject("SearchPanel.BackgroundImage");
+            SearchPanel.Controls.Add(SaveButton);
             SearchPanel.Controls.Add(dgvSearchResults);
             SearchPanel.Controls.Add(textBox1);
             SearchPanel.Controls.Add(button1);
@@ -446,15 +448,27 @@
             SearchPanel.TabIndex = 0;
             SearchPanel.Visible = false;
             // 
+            // SaveButton
+            // 
+            SaveButton.FlatStyle = FlatStyle.Popup;
+            SaveButton.ForeColor = SystemColors.ControlLightLight;
+            SaveButton.Location = new Point(204, 95);
+            SaveButton.Name = "SaveButton";
+            SaveButton.Size = new Size(75, 23);
+            SaveButton.TabIndex = 3;
+            SaveButton.Text = "Save";
+            SaveButton.UseVisualStyleBackColor = true;
+            SaveButton.Click += SaveButton_Click;
+            // 
             // dgvSearchResults
             // 
-            dgvSearchResults.AllowUserToAddRows = false;
-            dgvSearchResults.AllowUserToDeleteRows = false;
+            dgvSearchResults.AllowUserToAddRows = true;
+            dgvSearchResults.AllowUserToDeleteRows = true;
             dgvSearchResults.BackgroundColor = SystemColors.ControlLightLight;
             dgvSearchResults.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvSearchResults.Location = new Point(30, 150);
             dgvSearchResults.Name = "dgvSearchResults";
-            dgvSearchResults.ReadOnly = true;
+            dgvSearchResults.ReadOnly = false;
             dgvSearchResults.RightToLeft = RightToLeft.Yes;
             dgvSearchResults.RowTemplate.Height = 25;
             dgvSearchResults.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -468,13 +482,13 @@
             textBox1.Size = new Size(198, 23);
             textBox1.TabIndex = 1;
             // 
-            // button1
+            // search panel button
             // 
             button1.BackColor = Color.Transparent;
             button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
             button1.FlatStyle = FlatStyle.Popup;
             button1.ForeColor = SystemColors.ControlLightLight;
-            button1.Location = new Point(147, 95);
+            button1.Location = new Point(81, 95);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 0;
@@ -635,7 +649,7 @@
             // 
             label6.AutoSize = true;
             label6.ForeColor = SystemColors.ControlLightLight;
-            label6.Location = new Point(59, 16);
+            label6.Location = new Point(0, 5);
             label6.Name = "label6";
             label6.Size = new Size(437, 1110);
             label6.TabIndex = 1;
@@ -738,5 +752,6 @@
         private Button About;
         private Panel AboutPannel;
         private Label label6;
+        private Button SaveButton;
     }
 }
